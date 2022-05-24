@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="proconip"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<!-- Sample Thing Type -->
+	<thing-type id="device">
+		<label>ProCon.IP Device</label>
+		<description>A thing for communication with a ProCon.IP device.</description>
+
+		<channel-groups>
+			<channel-group id="adcs" typeId="adcs"/>
+			<channel-group id="electrodes" typeId="electrodes"/>
+			<channel-group id="temperatures" typeId="temperatures"/>
+			<channel-group id="relais" typeId="relais"/>
+			<channel-group id="digitalInputs" typeId="digitalInputs"/>
+			<channel-group id="externalRelais" typeId="externalRelais"/>
+			<channel-group id="dosing" typeId="dosing"/>
+		</channel-groups>
+
+		<properties>
+			<property name="firmwareVersion">N/A</property>
+			<property name="uptime">N/A</property>
+		</properties>
+
+		<config-description>
+			<parameter name="hostname" type="text" required="true">
+				<context>network-address</context>
+				<label>Hostname</label>
+				<description>URL of the ProCon.IP, e.g. http://proconip.mynet.mydomain or http://10.10.10.10</description>
+			</parameter>
+			<parameter name="refreshInterval" type="integer" unit="s" min="30">
+				<label>Refresh Interval</label>
+				<description>Interval at which the ProCon.IP is polled (in sec.)</description>
+				<default>60</default>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<channel-group-type id="adcs">
+		<label>ADC Values</label>
+		<channels>
+			<channel id="adc1" typeId="adcType">
+				<label>ADC 1</label>
+			</channel>
+			<channel id="adc2" typeId="adcType">
+				<label>ADC 2</label>
+			</channel>
+			<channel id="adc3" typeId="adcType">
+				<label>ADC 3</label>
+			</channel>
+			<channel id="adc4" typeId="adcType">
+				<label>ADC 4</label>
+			</channel>
+			<channel id="adc5" typeId="adcType">
+				<label>ADC 5</label>
+			</channel>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="electrodes">
+		<label>Electrodes</label>
+		<channels>
+			<channel id="redox" typeId="redoxType"/>
+			<channel id="ph" typeId="phType"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="temperatures">
+		<label>Temperature Values</label>
+		<channels>
+			<channel id="temperature1" typeId="temperatureType">
+				<label>Temperature 1</label>
+			</channel>
+			<channel id="temperature2" typeId="temperatureType">
+				<label>Temperature 2</label>
+			</channel>
+			<channel id="temperature3" typeId="temperatureType">
+				<label>Temperature 3</label>
+			</channel>
+			<channel id="temperature4" typeId="temperatureType">
+				<label>Temperature 4</label>
+			</channel>
+			<channel id="temperature5" typeId="temperatureType">
+				<label>Temperature 5</label>
+			</channel>
+			<channel id="temperature6" typeId="temperatureType">
+				<label>Temperature 6</label>
+			</channel>
+			<channel id="temperature7" typeId="temperatureType">
+				<label>Temperature 7</label>
+			</channel>
+			<channel id="temperature8" typeId="temperatureType">
+				<label>Temperature 8</label>
+			</channel>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="relais">
+		<label>Relais Values</label>
+		<channels>
+			<channel id="relais1" typeId="relaisType">
+				<label>Relais 1</label>
+			</channel>
+			<channel id="relais2" typeId="relaisType">
+				<label>Relais 2</label>
+			</channel>
+			<channel id="relais3" typeId="relaisType">
+				<label>Relais 3</label>
+			</channel>
+			<channel id="relais4" typeId="relaisType">
+				<label>Relais 4</label>
+			</channel>
+			<channel id="relais5" typeId="relaisType">
+				<label>Relais 5</label>
+			</channel>
+			<channel id="relais6" typeId="relaisType">
+				<label>Relais 6</label>
+			</channel>
+			<channel id="relais7" typeId="relaisType">
+				<label>Relais 7</label>
+			</channel>
+			<channel id="relais8" typeId="relaisType">
+				<label>Relais 8</label>
+			</channel>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="digitalInputs">
+		<label>Digital Input Values</label>
+		<channels>
+			<channel id="digitalInput1" typeId="digitalInputType">
+				<label>Digital Input 1</label>
+			</channel>
+			<channel id="digitalInput2" typeId="digitalInputType">
+				<label>Digital Input 2</label>
+			</channel>
+			<channel id="digitalInput3" typeId="digitalInputType">
+				<label>Digital Input 3</label>
+			</channel>
+			<channel id="digitalInput4" typeId="digitalInputType">
+				<label>Digital Input 4</label>
+			</channel>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="externalRelais">
+		<label>External Relais Values</label>
+		<channels>
+			<channel id="relais1" typeId="relaisType">
+				<label>Relais 1</label>
+			</channel>
+			<channel id="relais2" typeId="relaisType">
+				<label>Relais 2</label>
+			</channel>
+			<channel id="relais3" typeId="relaisType">
+				<label>Relais 3</label>
+			</channel>
+			<channel id="relais4" typeId="relaisType">
+				<label>Relais 4</label>
+			</channel>
+			<channel id="relais5" typeId="relaisType">
+				<label>Relais 5</label>
+			</channel>
+			<channel id="relais6" typeId="relaisType">
+				<label>Relais 6</label>
+			</channel>
+			<channel id="relais7" typeId="relaisType">
+				<label>Relais 7</label>
+			</channel>
+			<channel id="relais8" typeId="relaisType">
+				<label>Relais 8</label>
+			</channel>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="dosing">
+		<label>Dosing Values</label>
+		<channels>
+			<channel id="chlorineRemaining" typeId="chlorineRemainingType"/>
+			<channel id="chlorineUsage" typeId="chlorineUsageType"/>
+			<channel id="phMinusRemaining" typeId="phMinusRemainingType"/>
+			<channel id="phMinusUsage" typeId="phMinusUsageType"/>
+			<channel id="phPlusRemaining" typeId="phPlusRemainingType"/>
+			<channel id="phPlusUsage" typeId="phPlusUsageType"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-type id="adcType">
+		<item-type>Number</item-type>
+		<label>ADC</label>
+		<description>ADC channel</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="redoxType">
+		<item-type>Number</item-type>
+		<label>Redox</label>
+		<description>Redox Electrode</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="phType">
+		<item-type>Number</item-type>
+		<label>pH</label>
+		<description>pH Electrode</description>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="temperatureType">
+		<item-type>Number:Temperature</item-type>
+		<label>Temperature</label>
+		<description>Temperature channel</description>
+		<category>Temperature</category>
+		<tags>
+			<tag>Temperature</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="relaisType">
+		<item-type>Switch</item-type>
+		<label>Relais</label>
+		<description>Relais channel</description>
+		<category>Switch</category>
+		<tags>
+			<tag>Switch</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="digitalInputType">
+		<item-type>Number</item-type>
+		<label>Digital Input</label>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="chlorineRemainingType">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Chlorine Remaining</label>
+		<category>cistern</category>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="chlorineUsageType">
+		<item-type>Number:Volume</item-type>
+		<label>Chlorine Usage</label>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="phMinusRemainingType">
+		<item-type>Number:Dimensionless</item-type>
+		<label>PH Minus Remaining</label>
+		<category>cistern</category>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="phMinusUsageType">
+		<item-type>Number:Volume</item-type>
+		<label>PH Minus Usage</label>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="phPlusRemainingType">
+		<item-type>Number:Dimensionless</item-type>
+		<label>PH Plus Remaining</label>
+		<category>cistern</category>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="phPlusUsageType">
+		<item-type>Number:Volume</item-type>
+		<label>PH Plus Usage</label>
+		<tags>
+			<tag>Measurement</tag>
+		</tags>
+		<state readOnly="true"/>
+	</channel-type>
+
+</thing:thing-descriptions>
