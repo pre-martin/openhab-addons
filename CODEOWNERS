@@ -276,6 +276,7 @@
 /bundles/org.openhab.binding.plugwise/ @wborn
 /bundles/org.openhab.binding.plugwiseha/ @lsiepel
 /bundles/org.openhab.binding.powermax/ @lolodomo
+/bundles/org.openhab.binding.proconip/ @pre-martin
 /bundles/org.openhab.binding.proteusecometer/ @2chilled
 /bundles/org.openhab.binding.prowl/ @octa22
 /bundles/org.openhab.binding.publictransportswitzerland/ @jeremystucki
