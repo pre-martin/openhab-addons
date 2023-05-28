@@ -222,12 +222,15 @@ public class ProConIpHandler extends BaseThingHandler {
      * channels.
      */
     private void pollState() {
-        assert proConIpClient != null;
         logger.debug("Polling device");
+        var client = proConIpClient;
+        if (client == null) {
+            return;
+        }
 
         final DeviceState newDeviceState;
         try {
-            newDeviceState = proConIpClient.readState();
+            newDeviceState = client.readState();
         } catch (ProConIpCommunicationException ce) {
             logger.warn("Could not communicate with ProCon.IP. Setting thing to 'OFFLINE'.");
             updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.COMMUNICATION_ERROR, ce.getMessage());

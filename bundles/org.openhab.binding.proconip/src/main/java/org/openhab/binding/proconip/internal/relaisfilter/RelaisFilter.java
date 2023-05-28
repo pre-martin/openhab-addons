@@ -13,6 +13,8 @@ package org.openhab.binding.proconip.internal.relaisfilter;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.core.library.types.OnOffType;
 import org.openhab.core.types.State;
 import org.openhab.core.types.UnDefType;
@@ -23,6 +25,7 @@ import org.openhab.core.types.UnDefType;
  *
  * @author Martin Renner - Initial contribution.
  */
+@NonNullByDefault
 public class RelaisFilter {
     private final Map<String, RelaisState> relaisStates = new HashMap<>();
 
@@ -33,11 +36,17 @@ public class RelaisFilter {
             }
 
             RelaisState relaisState = relaisStates.get(id);
-            relaisState.setState(state);
+            if (relaisState != null) {
+                relaisState.setState(state);
+            }
         }
     }
 
-    public State filterState(String relaisFilter, State state) {
+    public State filterState(@Nullable String relaisFilter, State state) {
+        if (relaisFilter == null) {
+            return state;
+        }
+
         String[] parts = relaisFilter.split(";");
         if (parts.length != 2) {
             return UnDefType.UNDEF;
@@ -46,14 +55,16 @@ public class RelaisFilter {
         String relaisId = parts[0];
         int requiredMinutes = Integer.parseInt(parts[1]);
 
-        RelaisState relaisState = relaisStates.get(relaisId);
-        if (relaisState == null) {
-            // We do not yet know the state of this relais
-            return UnDefType.UNDEF;
-        }
+        synchronized (relaisStates) {
+            RelaisState relaisState = relaisStates.get(relaisId);
+            if (relaisState == null) {
+                // We do not yet know the state of this relais
+                return UnDefType.UNDEF;
+            }
 
-        if (relaisState.isOnForAtLeast(requiredMinutes)) {
-            return state;
+            if (relaisState.isOnForAtLeast(requiredMinutes)) {
+                return state;
+            }
         }
 
         return UnDefType.UNDEF;
