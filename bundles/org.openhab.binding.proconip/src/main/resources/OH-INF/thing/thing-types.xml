@@ -4,7 +4,6 @@
 	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
 	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
 
-	<!-- Sample Thing Type -->
 	<thing-type id="device">
 		<label>ProCon.IP Device</label>
 		<description>A thing for communication with a ProCon.IP device.</description>
@@ -24,18 +23,7 @@
 			<property name="uptime">N/A</property>
 		</properties>
 
-		<config-description>
-			<parameter name="hostname" type="text" required="true">
-				<context>network-address</context>
-				<label>Hostname</label>
-				<description>URL of the ProCon.IP, e.g. http://proconip.mynet.mydomain or http://10.10.10.10</description>
-			</parameter>
-			<parameter name="refreshInterval" type="integer" unit="s" min="30">
-				<label>Refresh Interval</label>
-				<description>Interval at which the ProCon.IP is polled (in sec.)</description>
-				<default>60</default>
-			</parameter>
-		</config-description>
+		<config-description-ref uri="thing-type:proconip:config"/>
 	</thing-type>
 
 	<channel-group-type id="adcs">
@@ -192,6 +180,7 @@
 		<label>ADC</label>
 		<description>ADC channel</description>
 		<state readOnly="true"/>
+		<config-description-ref uri="channel-type:proconip:relais-dependent-config"/>
 	</channel-type>
 
 	<channel-type id="redoxType">
@@ -199,6 +188,7 @@
 		<label>Redox</label>
 		<description>Redox Electrode</description>
 		<state readOnly="true"/>
+		<config-description-ref uri="channel-type:proconip:relais-dependent-config"/>
 	</channel-type>
 
 	<channel-type id="phType">
@@ -206,6 +196,7 @@
 		<label>pH</label>
 		<description>pH Electrode</description>
 		<state readOnly="true"/>
+		<config-description-ref uri="channel-type:proconip:relais-dependent-config"/>
 	</channel-type>
 
 	<channel-type id="temperatureType">
@@ -217,6 +208,7 @@
 			<tag>Temperature</tag>
 		</tags>
 		<state readOnly="true"/>
+		<config-description-ref uri="channel-type:proconip:relais-dependent-config"/>
 	</channel-type>
 
 	<channel-type id="relaisType">

@@ -25,9 +25,11 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.eclipse.jetty.client.HttpClient;
 import org.openhab.binding.proconip.internal.ConnectionInformation;
 import org.openhab.binding.proconip.internal.ProConIpCommunicationException;
-import org.openhab.binding.proconip.internal.ProConIpConfiguration;
 import org.openhab.binding.proconip.internal.client.ProConIpClient;
+import org.openhab.binding.proconip.internal.config.ProConIpChannelConfig;
+import org.openhab.binding.proconip.internal.config.ProConIpThingConfiguration;
 import org.openhab.binding.proconip.internal.model.DeviceState;
+import org.openhab.binding.proconip.internal.relaisfilter.RelaisFilter;
 import org.openhab.core.library.types.DecimalType;
 import org.openhab.core.library.types.OnOffType;
 import org.openhab.core.library.types.QuantityType;
@@ -53,6 +55,7 @@ public class ProConIpHandler extends BaseThingHandler {
     private @Nullable ProConIpClient proConIpClient;
     private @Nullable ScheduledFuture<?> pollingJob;
     private @Nullable DeviceState deviceState;
+    private final RelaisFilter relaisFilter = new RelaisFilter();
 
     public ProConIpHandler(Thing thing, HttpClient httpClient) {
         super(thing);
@@ -61,7 +64,7 @@ public class ProConIpHandler extends BaseThingHandler {
 
     @Override
     public void initialize() {
-        ProConIpConfiguration config = getConfigAs(ProConIpConfiguration.class);
+        ProConIpThingConfiguration config = getConfigAs(ProConIpThingConfiguration.class);
         logger.info("Initializing binding ProCon.IP for {}", config.hostname);
         ConnectionInformation conInfo = new ConnectionInformation(config.hostname);
 
@@ -143,6 +146,7 @@ public class ProConIpHandler extends BaseThingHandler {
             case RELAIS_8:
                 int relaisIdx = Integer.parseInt(channelUID.getId().substring(channelUID.getId().length() - 1));
                 state = deviceState.getRelais()[relaisIdx - 1] ? OnOffType.ON : OnOffType.OFF;
+                relaisFilter.setRelaisState(channelUID.getId(), (OnOffType) state);
                 break;
             case DIGITAL_INPUT_1:
             case DIGITAL_INPUT_2:
@@ -185,6 +189,18 @@ public class ProConIpHandler extends BaseThingHandler {
                 break;
         }
         if (state != null) {
+            final Channel channel = getThing().getChannel(channelUID.getId());
+            if (channel == null) {
+                logger.error("Cannot find channel for {}", channelUID);
+                return;
+            }
+            ProConIpChannelConfig config = channel.getConfiguration().as(ProConIpChannelConfig.class);
+            if (config.relaisFilter != null) {
+                State filteredState = relaisFilter.filterState(config.relaisFilter, state);
+                updateState(channelUID, filteredState);
+                return;
+            }
+
             updateState(channelUID, state);
         }
     }
