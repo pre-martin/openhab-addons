@@ -10,17 +10,17 @@
  *
  * SPDX-License-Identifier: EPL-2.0
  */
-package org.openhab.binding.proconip.internal;
+package org.openhab.binding.proconip.internal.config;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 
 /**
- * The {@link ProConIpConfiguration} class contains fields mapping thing configuration parameters.
+ * The {@link ProConIpThingConfiguration} class contains fields mapping thing configuration parameters.
  *
  * @author Martin Renner - Initial contribution
  */
 @NonNullByDefault
-public class ProConIpConfiguration {
+public class ProConIpThingConfiguration {
 
     public String hostname = "";
     public int refreshInterval = 60;
