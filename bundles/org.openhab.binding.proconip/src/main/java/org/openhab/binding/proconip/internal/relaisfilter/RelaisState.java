@@ -13,6 +13,8 @@ package org.openhab.binding.proconip.internal.relaisfilter;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.core.library.types.OnOffType;
 
 /**
@@ -20,10 +22,11 @@ import org.openhab.core.library.types.OnOffType;
  *
  * @author Martin Renner - Initial contribution.
  */
+@NonNullByDefault
 public class RelaisState {
     private final String relaisId;
-    private OnOffType state;
-    private Instant lastOnTime;
+    private @Nullable OnOffType state;
+    private @Nullable Instant lastOnTime;
 
     public RelaisState(String relaisId) {
         this.relaisId = relaisId;
@@ -33,7 +36,7 @@ public class RelaisState {
         return relaisId;
     }
 
-    public OnOffType getState() {
+    public @Nullable OnOffType getState() {
         return state;
     }
 
@@ -45,10 +48,11 @@ public class RelaisState {
     }
 
     public boolean isOnForAtLeast(int minutes) {
-        if (state != OnOffType.ON || lastOnTime == null) {
+        var lastOnTimeLocal = lastOnTime;
+        if (state != OnOffType.ON || lastOnTimeLocal == null) {
             return false;
         }
 
-        return !(lastOnTime.plus(minutes, ChronoUnit.MINUTES).isAfter(Instant.now()));
+        return !(lastOnTimeLocal.plus(minutes, ChronoUnit.MINUTES).isAfter(Instant.now()));
     }
 }

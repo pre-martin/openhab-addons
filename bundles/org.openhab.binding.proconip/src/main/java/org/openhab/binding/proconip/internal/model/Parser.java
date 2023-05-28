@@ -34,7 +34,7 @@ public class Parser {
         }
 
         var names = parseStringLine(lines[1], 2, 42);
-        var units = parseStringLine(lines[2], 3, 42);
+        // var units = parseStringLine(lines[2], 3, 42);
         var offsets = parseDoubleLine(lines[3], 4, 42);
         var gains = parseDoubleLine(lines[4], 5, 42);
         var values = parseIntegerLine(lines[5], 6, 42);
