@@ -21,7 +21,7 @@
 	<config-description uri="channel-type:proconip:relais-dependent-config">
 		<parameter name="relaisFilter" type="text" pattern="(relais#relais\d);(\d+)">
 			<label>Relais Filter</label>
-			<description>Disable channels based on the state of a relais channel</description>
+			<description>Disable channel based on the state of a relais channel</description>
 		</parameter>
 	</config-description>
 </config-description:config-descriptions>
