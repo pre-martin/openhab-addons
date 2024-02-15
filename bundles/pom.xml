@@ -306,7 +306,6 @@
     <module>org.openhab.binding.plugwise</module>
     <module>org.openhab.binding.plugwiseha</module>
     <module>org.openhab.binding.powermax</module>
-    <module>org.openhab.binding.proconip</module>
     <module>org.openhab.binding.proteusecometer</module>
     <module>org.openhab.binding.prowl</module>
     <module>org.openhab.binding.publictransportswitzerland</module>
@@ -447,6 +446,10 @@
     <module>org.openhab.voice.voicerss</module>
     <module>org.openhab.voice.voskstt</module>
     <module>org.openhab.voice.watsonstt</module>
+    <!-- mine -->
+    <module>org.openhab.binding.holidays</module>
+    <module>org.openhab.binding.proconip</module>
+
   </modules>
 
   <properties>
