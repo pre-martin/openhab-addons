@@ -155,7 +155,7 @@ public class SchoolHolidaysManager {
             // almost not possible because we check for existence
             logger.warn("Vacation file disappeared.");
         } catch (IOException ioe) {
-            logger.error("IOException while reading fomr vacation file", ioe);
+            logger.error("IOException while reading from vacation file", ioe);
         }
     }
 }
