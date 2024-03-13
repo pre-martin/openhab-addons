@@ -77,6 +77,10 @@ public class AbstractBaseParser {
         return extractOptionalUInt16(raw, index).orElse(def);
     }
 
+    protected Long extractUInt32(ModbusRegisterArray raw, int index, long def) {
+        return ModbusBitUtilities.extractStateFromRegisters(raw, index, ValueType.UINT32).map(DecimalType::longValue).orElse(def);
+    }
+
     /**
      * Extract an optional acc32 value
      *

@@ -18,6 +18,7 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.binding.modbus.sunspec.internal.handler.InverterHandler;
 import org.openhab.binding.modbus.sunspec.internal.handler.MeterHandler;
+import org.openhab.binding.modbus.sunspec.internal.handler.MpptHandler;
 import org.openhab.core.thing.Thing;
 import org.openhab.core.thing.ThingTypeUID;
 import org.openhab.core.thing.binding.BaseThingHandlerFactory;
@@ -61,6 +62,9 @@ public class SunSpecHandlerFactory extends BaseThingHandlerFactory {
                 || thingTypeUID.equals(THING_TYPE_METER_DELTA_PHASE)) {
             logger.debug("New MeterHandler created");
             return new MeterHandler(thing);
+        } else if (thingTypeUID.equals(SunSpecExConstants.THING_TYPE_MPPT)) {
+            logger.debug("New MpptHandler created");
+            return new MpptHandler(thing);
         }
 
         return null;
