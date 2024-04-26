@@ -45,6 +45,7 @@ public class MpptModelBlock {
 
     public static class MpptModuleBlock {
         public Integer moduleId;
+
         public String moduleIdString;
 
         public Integer current;

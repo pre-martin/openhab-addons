@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="mppt-id-type">
+		<item-type>String</item-type>
+		<label>Module ID</label>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="mppt-dc-current-type">
+		<item-type>Number:ElectricCurrent</item-type>
+		<label>DC Current</label>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="mppt-dc-voltage-type">
+		<item-type>Number:ElectricPotential</item-type>
+		<label>DC Voltage</label>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="mppt-dc-power-type">
+		<item-type>Number:Power</item-type>
+		<label>DC Power</label>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="mppt-lifetime-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Lifetime Energy</label>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="mppt-temperature-type">
+		<item-type>Number:Temperature</item-type>
+		<label>Temperature</label>
+		<state readOnly="true" pattern="%d %unit%"/>
+	</channel-type>
+
+	<channel-type id="mppt-operating-state-type">
+		<item-type>String</item-type>
+		<label>Operating State</label>
+		<state readOnly="true">
+			<options>
+				<option value="OFF">Off</option>
+				<option value="SLEEPING">Sleeping</option>
+				<option value="STARTING">Starting</option>
+				<option value="MPPT">MPPT</option>
+				<option value="THROTTLED">Throttled</option>
+				<option value="SHUTTING_DOWN">Shutting down</option>
+				<option value="FAULT">Fault</option>
+				<option value="STANDBY">Standby</option>
+				<option value="TEST">Test</option>
+			</options>
+		</state>
+	</channel-type>
+
+</thing:thing-descriptions>

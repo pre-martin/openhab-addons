@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-group-type id="mppt-module">
+		<label>MPPT Module</label>
+		<channels>
+			<channel id="id" typeId="mppt-id-type"/>
+			<channel id="dc-current" typeId="mppt-dc-current-type"/>
+			<channel id="dc-voltage" typeId="mppt-dc-voltage-type"/>
+			<channel id="dc-power" typeId="mppt-dc-power-type"/>
+			<channel id="lifetime-energy" typeId="mppt-lifetime-energy-type"/>
+			<channel id="temperature" typeId="mppt-temperature-type"/>
+			<channel id="operating-state" typeId="mppt-operating-state-type"/>
+		</channels>
+	</channel-group-type>
+
+</thing:thing-descriptions>

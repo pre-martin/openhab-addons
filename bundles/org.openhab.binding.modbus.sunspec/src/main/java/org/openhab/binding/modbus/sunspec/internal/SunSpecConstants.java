@@ -41,12 +41,14 @@ public class SunSpecConstants {
     public static final ThingTypeUID THING_TYPE_METER_SPLIT_PHASE = new ThingTypeUID(BINDING_ID, "meter-split-phase");
     public static final ThingTypeUID THING_TYPE_METER_WYE_PHASE = new ThingTypeUID(BINDING_ID, "meter-wye-phase");
     public static final ThingTypeUID THING_TYPE_METER_DELTA_PHASE = new ThingTypeUID(BINDING_ID, "meter-delta-phase");
+    public static final ThingTypeUID THING_TYPE_MPPT = new ThingTypeUID(BINDING_ID, "sunspec-mppt");
 
     // Block types
     public static final int COMMON_BLOCK = 1;
     public static final int INVERTER_SINGLE_PHASE = 101;
     public static final int INVERTER_SPLIT_PHASE = 102;
     public static final int INVERTER_THREE_PHASE = 103;
+    public static final int MPPT = 160;
     public static final int METER_SINGLE_PHASE = 201;
     public static final int METER_SPLIT_PHASE = 202;
     public static final int METER_WYE_PHASE = 203;
@@ -65,7 +67,7 @@ public class SunSpecConstants {
         SUPPORTED_THING_TYPES_UIDS.put(METER_SPLIT_PHASE, THING_TYPE_METER_SPLIT_PHASE);
         SUPPORTED_THING_TYPES_UIDS.put(METER_WYE_PHASE, THING_TYPE_METER_WYE_PHASE);
         SUPPORTED_THING_TYPES_UIDS.put(METER_DELTA_PHASE, THING_TYPE_METER_DELTA_PHASE);
-        SUPPORTED_THING_TYPES_UIDS.put(SunSpecExConstants.MPPT, SunSpecExConstants.THING_TYPE_MPPT);
+        SUPPORTED_THING_TYPES_UIDS.put(MPPT, THING_TYPE_MPPT);
     }
 
     // properties
@@ -140,6 +142,18 @@ public class SunSpecConstants {
     public static final String CHANNEL_AC_IMPORTED_REACTIVE_ENERGY_Q2 = "ac-imported-reactive-energy-q2";
     public static final String CHANNEL_AC_EXPORTED_REACTIVE_ENERGY_Q3 = "ac-exported-reactive-energy-q3";
     public static final String CHANNEL_AC_EXPORTED_REACTIVE_ENERGY_Q4 = "ac-exported-reactive-energy-q4";
+
+    // List of channel group type ids in MPPT Module
+    public static final String CHANNEL_GROUP_TYPE_MPPT_MODULE = "mppt-module";
+
+    // List of channel ids in MPPT Module group
+    public static final String CHANNEL_MPPT_ID = "id";
+    public static final String CHANNEL_MPPT_DC_CURRENT = "dc-current";
+    public static final String CHANNEL_MPPT_DC_VOLTAGE = "dc-voltage";
+    public static final String CHANNEL_MPPT_DC_POWER = "dc-power";
+    public static final String CHANNEL_MPPT_LIFETIME_ENERGY = "lifetime-energy";
+    public static final String CHANNEL_MPPT_TEMPERATURE = "temperature";
+    public static final String CHANNEL_MPPT_OPERATING_STATE = "operating-state";
 
     // Expected SunSpec ID This is a magic constant to distinguish SunSpec compatible
     // devices from other modbus devices

@@ -18,6 +18,7 @@ Note, that the things will show up under the Modbus binding.
 | inverter-single-phase | For simple, single phase inverters                                    |
 | inverter-split-phase  | Split phase inverters (Japanese grid and 240V grid in North America)  |
 | inverter-three-phase  | Three phase inverters                                                 |
+| sunspec-mppt          | Multiple MPPT inverter extension                                      |
 | meter-single-phase    | Single phase meters (AN or AB)                                        |
 | meter-split-phase     | Split single phase meters (ABN)                                       |
 | meter-wye-phase       | Wye connected three phase meters (ABCN)                               |
@@ -55,6 +56,19 @@ The following parameters are valid for all thing types:
 | length    | integer | yes      | N/A                 | Length of the model block. Setting this too short could cause problems during parsing |
 | refresh   | integer | no       | 5                   | Poll interval in seconds. Increase this if you encounter connection errors |
 | maxTries  | integer | no       | 3                   | Number of retries when before giving up reading from this thing. |
+
+Auto Discovery is the preferred way to get these values right. For manual configuration, here are a few starting values for the field `length` (but you should always consult the documentation of your device):
+
+| Thing                 | SunSpec default length     |
+|-----------------------|----------------------------|
+| inverter-single-phase | 52                         |
+| inverter-split-phase  | 52                         |
+| inverter-three-phase  | 52                         |
+| sunspec-mppt          | 10 + (number strings * 20) |
+| meter-single-phase    | 107                        |
+| meter-split-phase     | 107                        |
+| meter-wye-phase       | 107                        |
+| meter-delta-phase     | 107                        |
 
 ## Channels
 
@@ -184,6 +198,23 @@ DC information is summarized even if the inverter has multiple strings.
 | dc-power             | Number:Power             | Actual DC power produced                                            |
 
 Supported by: all inverter things
+
+### MPPT Module
+
+This group contains information about a single MPPT (Maximum Power Point Tracking) string of an inverter.
+
+| Channel ID       | Item Type                | Description                                                                                                                                                                                             |
+|------------------|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id               | String                   | The ID of the string                                                                                                                                                                                    |
+| dc-current       | Number:ElectricCurrent   | Actual DC current in Amperes                                                                                                                                                                            |
+| dc-voltage       | Number:ElectricPotential | Actual DC voltage                                                                                                                                                                                       |
+| dc-power         | Number:Power             | Actual DC power produced                                                                                                                                                                                |
+| lifetime-energy  | Number:Energy            | Total energy produced in Wh                                                                                                                                                                             |
+| temperature      | Number:Temperature       | Temperature if supported in Celsius                                                                                                                                                                     |
+| operating-state  | Number:String            | Device state: <ul><li>OFF</li><li>SLEEPING</li><li>STARTING</li><li>ON (also called MPPT by Specification)</li><li>THROTTLED</li><li>SHUTTING_DOWN</li><li>FAULT</li><li>STANDBY</li><li>TEST</li></ul> |
+
+
+Supported by: MPPT thing
 
 ## Full Example
 

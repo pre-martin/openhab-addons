@@ -10,11 +10,12 @@
 			<bridge-type-ref id="serial"/>
 		</supported-bridge-type-refs>
 
-		<label>Multiple MPPT Inverter Extension</label>
-		<description>Extension for an Inverter providing information about multiple MPP trackers</description>
+		<label>SunSpec Multiple MPPT Inverter Extension</label>
+		<description>SunSpec Extension for an Inverter providing information about multiple MPP trackers</description>
 		<category>Inverter</category>
 
 		<properties>
+			<property name="thingTypeVersion">1</property>
 			<property name="vendor"/>
 			<property name="model"/>
 			<property name="version"/>

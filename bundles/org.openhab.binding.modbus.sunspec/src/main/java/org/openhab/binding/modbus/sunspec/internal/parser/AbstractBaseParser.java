@@ -77,8 +77,17 @@ public class AbstractBaseParser {
         return extractOptionalUInt16(raw, index).orElse(def);
     }
 
+    /**
+     * Extract a mandatory uint32 value
+     *
+     * @param raw the register array to extract from
+     * @param index the address of the field
+     * @param def the default value
+     * @return the parsed value or the default if the field is not implemented
+     */
     protected Long extractUInt32(ModbusRegisterArray raw, int index, long def) {
-        return ModbusBitUtilities.extractStateFromRegisters(raw, index, ValueType.UINT32).map(DecimalType::longValue).orElse(def);
+        return ModbusBitUtilities.extractStateFromRegisters(raw, index, ValueType.UINT32).map(DecimalType::longValue)
+                .orElse(def);
     }
 
     /**

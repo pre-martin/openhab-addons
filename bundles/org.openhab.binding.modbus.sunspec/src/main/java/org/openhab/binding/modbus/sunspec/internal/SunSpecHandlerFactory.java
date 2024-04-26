@@ -62,7 +62,7 @@ public class SunSpecHandlerFactory extends BaseThingHandlerFactory {
                 || thingTypeUID.equals(THING_TYPE_METER_DELTA_PHASE)) {
             logger.debug("New MeterHandler created");
             return new MeterHandler(thing);
-        } else if (thingTypeUID.equals(SunSpecExConstants.THING_TYPE_MPPT)) {
+        } else if (thingTypeUID.equals(THING_TYPE_MPPT)) {
             logger.debug("New MpptHandler created");
             return new MpptHandler(thing);
         }
