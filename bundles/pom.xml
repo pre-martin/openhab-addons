@@ -451,6 +451,7 @@
     <!-- mine -->
     <module>org.openhab.binding.holidays</module>
     <module>org.openhab.binding.proconip</module>
+    <module>org.openhab.binding.modbus.kostal</module>
   </modules>
 
   <properties>

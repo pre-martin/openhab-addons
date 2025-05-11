@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-current-phase-pm-type">
+		<item-type>Number:ElectricCurrent</item-type>
+		<label>Current</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-active-power-phase-pm-type">
+		<item-type>Number:Power</item-type>
+		<label>Active Power</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-reactive-power-phase-pm-type">
+		<item-type>Number:Power</item-type>
+		<label>Reactive Power</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-apparent-power-phase-pm-type">
+		<item-type>Number:Power</item-type>
+		<label>Apparent Power</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-voltage-phase-pm-type">
+		<item-type>Number:ElectricPotential</item-type>
+		<label>Voltage</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>

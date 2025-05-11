@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-home-own-consumption-from-battery-type">
+		<item-type>Number:Power</item-type>
+		<label>Home From Battery</label>
+		<description>Home own consumption from battery</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-home-own-consumption-from-grid-type">
+		<item-type>Number:Power</item-type>
+		<label>Home From Grid</label>
+		<description>Home own consumption from grid</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-home-own-consumption-from-pv-type">
+		<item-type>Number:Power</item-type>
+		<label>Home From PV</label>
+		<description>Home own consumption from PV</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-home-consumption-battery-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Home From Battery</label>
+		<description>Total home consumption from battery</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-home-consumption-grid-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Home From Grid</label>
+		<description>Total home consumption from grid</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-home-consumption-pv-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Home From PV</label>
+		<description>Total home consumption from PV</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-home-consumption-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Home</label>
+		<description>Total home consumption</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-home-consumption-rate-type">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Total Home Rate</label>
+		<description>Total home consumption rate</description>
+		<state readOnly="true" pattern="%.0f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>

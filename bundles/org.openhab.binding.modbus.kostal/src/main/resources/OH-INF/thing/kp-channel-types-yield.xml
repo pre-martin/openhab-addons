@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-total-yield-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Yield</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-daily-yield-type">
+		<item-type>Number:Energy</item-type>
+		<label>Daily Yield</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-monthly-yield-type">
+		<item-type>Number:Energy</item-type>
+		<label>Monthly Yield</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-yearly-yield-type">
+		<item-type>Number:Energy</item-type>
+		<label>Yearly Yield</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>

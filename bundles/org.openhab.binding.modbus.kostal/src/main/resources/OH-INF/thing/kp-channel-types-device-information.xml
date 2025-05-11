@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-number-of-ac-phases-type">
+		<item-type>Number</item-type>
+		<label>Number of AC Phases</label>
+		<state readOnly="true" pattern="%d %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-number-of-pv-strings-type">
+		<item-type>Number</item-type>
+		<label>Number of PV Strings</label>
+		<state readOnly="true" pattern="%d %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-inverter-state-type">
+		<item-type>Number</item-type>
+		<label>Inverter State</label>
+		<state readOnly="true">
+			<options>
+				<option value="0">Off</option>
+				<option value="1">Init</option>
+				<option value="2">IsoMeas</option>
+				<option value="3">GridCheck</option>
+				<option value="4">Startup</option>
+				<option value="6">FeedIn</option>
+				<option value="7">Throttled</option>
+				<option value="8">ExtSwitchOff</option>
+				<option value="9">Update</option>
+				<option value="10">Standby</option>
+				<option value="11">GridSync</option>
+				<option value="12">GridPreCheck</option>
+				<option value="13">SwitchOff</option>
+				<option value="14">Overheating</option>
+				<option value="15">Shutdown</option>
+				<option value="16">ImproperDcVoltage</option>
+				<option value="17">ESB</option>
+				<option value="18">Unknown</option>
+			</options>
+		</state>
+	</channel-type>
+
+	<channel-type id="kp-temperature-of-controller-pcb-type">
+		<item-type>Number:Temperature</item-type>
+		<label>Temperature Controller PCB</label>
+		<category>Temperature</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+</thing:thing-descriptions>

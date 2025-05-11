@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-total-dc-pv-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC PV Energy Sum</label>
+		<description>Total DC PV energy (sum of all PV inputs)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-energy-from-pv1-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC Energy PV1</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-energy-from-pv2-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC Energy PV2</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-energy-from-pv3-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC Energy PV3</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-energy-ac-side-to-grid-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total Energy To Grid</label>
+		<description>Total energy AC-side to grid</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>

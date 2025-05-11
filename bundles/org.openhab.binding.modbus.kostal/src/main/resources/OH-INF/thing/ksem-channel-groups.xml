@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-group-type id="ksem-power-type">
+		<label>Power Registers</label>
+		<channels>
+			<channel id="activePowerPlus" typeId="ksem-active-power-plus-type"/>
+			<channel id="activePowerMinus" typeId="ksem-active-power-minus-type"/>
+			<channel id="reactivePowerPlus" typeId="ksem-reactive-power-plus-type"/>
+			<channel id="reactivePowerMinus" typeId="ksem-reactive-power-minus-type"/>
+			<channel id="apparentPowerPlus" typeId="ksem-apparent-power-plus-type"/>
+			<channel id="apparentPowerMinus" typeId="ksem-apparent-power-minus-type"/>
+			<channel id="powerFactor" typeId="ksem-power-factor-type"/>
+			<channel id="supplyFrequency" typeId="ksem-supply-frequency-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="ksem-power-phase-type">
+		<label>Power Phase</label>
+		<channels>
+			<channel id="activePowerPlus" typeId="ksem-active-power-plus-type"/>
+			<channel id="activePowerMinus" typeId="ksem-active-power-minus-type"/>
+			<channel id="reactivePowerPlus" typeId="ksem-reactive-power-plus-type"/>
+			<channel id="reactivePowerMinus" typeId="ksem-reactive-power-minus-type"/>
+			<channel id="apparentPowerPlus" typeId="ksem-apparent-power-plus-type"/>
+			<channel id="apparentPowerMinus" typeId="ksem-apparent-power-minus-type"/>
+			<channel id="current" typeId="ksem-current-type"/>
+			<channel id="voltage" typeId="ksem-voltage-type"/>
+			<channel id="powerFactor" typeId="ksem-power-factor-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="ksem-energy-type">
+		<label>Energy Registers</label>
+		<channels>
+			<channel id="activeEnergyPlus" typeId="ksem-active-energy-plus-type"/>
+			<channel id="activeEnergyMinus" typeId="ksem-active-energy-minus-type"/>
+			<channel id="reactiveEnergyPlus" typeId="ksem-reactive-energy-plus-type"/>
+			<channel id="reactiveEnergyMinus" typeId="ksem-reactive-energy-minus-type"/>
+			<channel id="apparentEnergyPlus" typeId="ksem-apparent-energy-plus-type"/>
+			<channel id="apparentEnergyMinus" typeId="ksem-apparent-energy-minus-type"/>
+		</channels>
+	</channel-group-type>
+
+</thing:thing-descriptions>

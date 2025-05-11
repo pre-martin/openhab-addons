@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-total-dc-power-type">
+		<item-type>Number:Power</item-type>
+		<label>Total DC Power</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.0f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-power-sum-type">
+		<item-type>Number:Power</item-type>
+		<label>Total DC Power Sum</label>
+		<description>Total DC power (sum of all PV inputs)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.0f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>

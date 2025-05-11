@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="kostal-plenticore">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="tcp"/>
+			<bridge-type-ref id="serial"/>
+		</supported-bridge-type-refs>
+
+		<label>Kostal Plenticore Inverter</label>
+		<description>Thing for Kostal Plenticore plus and Kostal Piko IQ Inverter</description>
+		<category>Inverter</category>
+
+		<channel-groups>
+			<channel-group id="deviceInformation" typeId="kp-device-information"/>
+			<channel-group id="consumption" typeId="kp-consumption"/>
+			<channel-group id="acGeneric" typeId="kp-ac-generic"/>
+			<channel-group id="acPhase1" typeId="kp-ac-phase">
+				<label>AC Phase 1</label>
+			</channel-group>
+			<channel-group id="acPhase2" typeId="kp-ac-phase">
+				<label>AC Phase 2</label>
+			</channel-group>
+			<channel-group id="acPhase3" typeId="kp-ac-phase">
+				<label>AC Phase 3</label>
+			</channel-group>
+			<channel-group id="powermeterGeneric" typeId="kp-powermeter-generic"/>
+			<channel-group id="powermeterPhase1" typeId="kp-powermeter-phase">
+				<label>Powermeter Phase 1</label>
+			</channel-group>
+			<channel-group id="powermeterPhase2" typeId="kp-powermeter-phase">
+				<label>Powermeter Phase 2</label>
+			</channel-group>
+			<channel-group id="powermeterPhase3" typeId="kp-powermeter-phase">
+				<label>Powermeter Phase 3</label>
+			</channel-group>
+			<channel-group id="dcGeneric" typeId="kp-dc-generic"/>
+			<channel-group id="dcString1" typeId="kp-dc-string">
+				<label>String 1</label>
+			</channel-group>
+			<channel-group id="dcString2" typeId="kp-dc-string">
+				<label>String 2</label>
+			</channel-group>
+			<channel-group id="dcString3" typeId="kp-dc-string">
+				<label>String 3</label>
+			</channel-group>
+			<channel-group id="battery" typeId="kp-battery"/>
+			<channel-group id="yield" typeId="kp-yield"/>
+			<channel-group id="dcAcEnergy" typeId="kp-dc-ac-energy"/>
+		</channel-groups>
+
+		<config-description>
+			<parameter name="refresh" type="integer" unit="s" min="10">
+				<label>Refresh Interval</label>
+				<description>Refresh Rate of values in seconds</description>
+				<default>30</default>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+	<thing-type id="kostal-ksem">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="tcp"/>
+			<bridge-type-ref id="serial"/>
+		</supported-bridge-type-refs>
+
+		<label>Kostal Smart Energy Meter G2</label>
+		<description>Thing for Kostal Smart Energy Meter G2</description>
+		<category>Meter</category>
+
+		<channel-groups>
+			<channel-group id="power" typeId="ksem-power-type"/>
+			<channel-group id="powerL1" typeId="ksem-power-phase-type">
+				<label>Power Registers L1</label>
+			</channel-group>
+			<channel-group id="powerL2" typeId="ksem-power-phase-type">
+				<label>Power Registers L2</label>
+			</channel-group>
+			<channel-group id="powerL3" typeId="ksem-power-phase-type">
+				<label>Power Registers L3</label>
+			</channel-group>
+			<channel-group id="energy" typeId="ksem-energy-type"/>
+			<channel-group id="energyL1" typeId="ksem-energy-type">
+				<label>Energy Registers L1</label>
+			</channel-group>
+			<channel-group id="energyL2" typeId="ksem-energy-type">
+				<label>Energy Registers L2</label>
+			</channel-group>
+			<channel-group id="energyL3" typeId="ksem-energy-type">
+				<label>Energy Registers L3</label>
+			</channel-group>
+		</channel-groups>
+
+		<config-description>
+			<parameter name="refresh" type="integer" unit="s" min="5">
+				<label>Refresh Interval</label>
+				<description>Refresh Rate of values in seconds</description>
+				<default>30</default>
+			</parameter>
+		</config-description>
+	</thing-type>
+</thing:thing-descriptions>

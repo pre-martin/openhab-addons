@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="kp-battery-charge-current-type">
+		<item-type>Number:ElectricCurrent</item-type>
+		<label>Battery Charge Current</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-number-of-battery-cycles-type">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Battery Cycles</label>
+		<state readOnly="true" pattern="%.0f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-actual-battery-charge-type">
+		<item-type>Number:ElectricCurrent</item-type>
+		<label>Actual Battery Charge</label>
+		<description>Actual battery charge (-) / discharge (+) current</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-pssb-fuse-state-type">
+		<item-type>Number</item-type>
+		<label>PSSB Fuse State</label>
+		<state readOnly="true">
+			<options>
+				<option value="0">Fuse fail</option>
+				<option value="1">Fuse ok</option>
+				<option value="255">Unchecked</option>
+			</options>
+		</state>
+	</channel-type>
+
+	<channel-type id="kp-battery-ready-flag-type">
+		<item-type>Number</item-type>
+		<label>Battery Ready Flag</label>
+		<state readOnly="true" pattern="%.0f"/>
+	</channel-type>
+
+	<channel-type id="kp-actual-state-of-charge-type">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Actual State Of Charge</label>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-temperature-type">
+		<item-type>Number:Temperature</item-type>
+		<label>Battery Temperature</label>
+		<category>Temperature</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-voltage-type">
+		<item-type>Number:ElectricPotential</item-type>
+		<label>Battery Voltage</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.1f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-gross-capacity-type">
+		<item-type>Number:ElectricCurrent</item-type>
+		<label>Battery Gross Capacity</label>
+		<category>BatteryLevel</category>
+		<state readOnly="true" pattern="%d %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-actual-soc-type">
+		<item-type>Number:Dimensionless</item-type>
+		<label>Battery Actual SOC</label>
+		<category>BatteryLevel</category>
+		<state readOnly="true" pattern="%d %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-manufacturer-type">
+		<item-type>String</item-type>
+		<label>Battery Manufacturer</label>
+		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-model-id-type">
+		<item-type>Number</item-type>
+		<label>Battery Model ID</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-serial-number-type">
+		<item-type>Number</item-type>
+		<label>Battery Serial Number</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="kp-work-capacity-type">
+		<item-type>Number:Energy</item-type>
+		<label>Work Capacity</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="kp-actual-battery-charge-power-type">
+		<item-type>Number:Power</item-type>
+		<label>Actual Battery Charge</label>
+		<description>Actual battery charge/discharge power</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-firmware-type">
+		<item-type>Number</item-type>
+		<label>Battery Firmware</label>
+		<state readOnly="true" pattern="%d"/>
+	</channel-type>
+
+	<channel-type id="kp-battery-type-type">
+		<item-type>Number</item-type>
+		<label>Battery Type</label>
+		<state readOnly="true">
+			<options>
+				<option value="0">No battery</option>
+				<option value="2">PIKO Battery Li</option>
+				<option value="4">BYD</option>
+				<option value="8">BMZ</option>
+				<option value="16">AXIstorage Li SH</option>
+				<option value="64">LG</option>
+				<option value="512">Pyontech Force H</option>
+				<option value="1024">AXIstorage Li SV</option>
+				<option value="2048">Wintersun</option>
+				<option value="4096">Dyness Tower</option>
+			</options>
+		</state>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-charge-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC Charge Energy</label>
+		<description>Total DC charge energy (DC-side to battery)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-dc-discharge-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total DC Discharge Energy</label>
+		<description>Total DC discharge energy (DC-side from battery)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-ac-charge-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total AC Charge Energy</label>
+		<description>Total AC charge energy (AC-side to battery)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-ac-discharge-energy-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total AC Discharge Energy</label>
+		<description>Total DC discharge energy (battery to grid)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+
+	<channel-type id="kp-total-ac-charge-energy-grid-type">
+		<item-type>Number:Energy</item-type>
+		<label>Total AC Charge Energy Grid</label>
+		<description>Total AC charge energy (grid to battery)</description>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.2f %unit%"/>
+	</channel-type>
+</thing:thing-descriptions>

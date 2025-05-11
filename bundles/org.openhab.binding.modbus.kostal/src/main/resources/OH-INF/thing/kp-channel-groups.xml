@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-group-type id="kp-device-information">
+		<label>Device Information</label>
+		<channels>
+			<channel id="numberOfAcPhases" typeId="kp-number-of-ac-phases-type"/>
+			<channel id="numberOfPvStrings" typeId="kp-number-of-pv-strings-type"/>
+			<channel id="inverterState" typeId="kp-inverter-state-type"/>
+			<channel id="temperatureOfControllerPcb" typeId="kp-temperature-of-controller-pcb-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-consumption">
+		<label>Consumption Information</label>
+		<channels>
+			<channel id="homeOwnConsumptionFromBattery" typeId="kp-home-own-consumption-from-battery-type"/>
+			<channel id="homeOwnConsumptionFromGrid" typeId="kp-home-own-consumption-from-grid-type"/>
+			<channel id="homeOwnConsumptionFromPv" typeId="kp-home-own-consumption-from-pv-type"/>
+			<channel id="totalHomeConsumptionBattery" typeId="kp-total-home-consumption-battery-type"/>
+			<channel id="totalHomeConsumptionGrid" typeId="kp-total-home-consumption-grid-type"/>
+			<channel id="totalHomeConsumptionPv" typeId="kp-total-home-consumption-pv-type"/>
+			<channel id="totalHomeConsumption" typeId="kp-total-home-consumption-type"/>
+			<channel id="totalHomeConsumptionRate" typeId="kp-total-home-consumption-rate-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-ac-generic">
+		<label>AC Generic</label>
+		<channels>
+			<channel id="cosPhi" typeId="kp-cos-phi-type"/>
+			<channel id="frequency" typeId="kp-frequency-type"/>
+			<channel id="totalAcActivePower" typeId="kp-total-ac-active-power-type"/>
+			<channel id="totalAcReactivePower" typeId="kp-total-ac-reactive-power-type"/>
+			<channel id="totalAcApparentPower" typeId="kp-total-ac-apparent-power-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-ac-phase">
+		<label>AC Phase</label>
+		<channels>
+			<channel id="current" typeId="kp-current-phase-type"/>
+			<channel id="activePower" typeId="kp-active-power-phase-type"/>
+			<channel id="voltage" typeId="kp-voltage-phase-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-powermeter-generic">
+		<label>Powermeter Information</label>
+		<channels>
+			<channel id="cosPhi" typeId="kp-cos-phi-pm-type"/>
+			<channel id="frequency" typeId="kp-frequency-pm-type"/>
+			<channel id="totalActivePower" typeId="kp-total-active-power-pm-type"/>
+			<channel id="totalReactivePower" typeId="kp-total-reactive-power-pm-type"/>
+			<channel id="totalApparentPower" typeId="kp-total-apparent-power-pm-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-powermeter-phase">
+		<label>Powermeter Phase</label>
+		<channels>
+			<channel id="current" typeId="kp-current-phase-pm-type"/>
+			<channel id="activePower" typeId="kp-active-power-phase-pm-type"/>
+			<channel id="reactivePower" typeId="kp-reactive-power-phase-pm-type"/>
+			<channel id="apparentPower" typeId="kp-apparent-power-phase-pm-type"/>
+			<channel id="voltage" typeId="kp-voltage-phase-pm-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-dc-generic">
+		<label>DC Generic</label>
+		<channels>
+			<channel id="totalDcPower" typeId="kp-total-dc-power-type"/>
+			<channel id="totalDcPowerSum" typeId="kp-total-dc-power-sum-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-dc-string">
+		<label>DC String</label>
+		<channels>
+			<channel id="current" typeId="kp-current-dc-type"/>
+			<channel id="power" typeId="kp-power-dc-type"/>
+			<channel id="voltage" typeId="kp-voltage-dc-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-yield">
+		<label>Yielded Energy</label>
+		<channels>
+			<channel id="totalYield" typeId="kp-total-yield-type"/>
+			<channel id="dailyYield" typeId="kp-daily-yield-type"/>
+			<channel id="monthlyYield" typeId="kp-monthly-yield-type"/>
+			<channel id="yearlyYield" typeId="kp-yearly-yield-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-battery">
+		<label>Battery</label>
+		<channels>
+			<channel id="batteryChargeCurrent" typeId="kp-battery-charge-current-type"/>
+			<channel id="numberOfBatteryCycles" typeId="kp-number-of-battery-cycles-type"/>
+			<channel id="actualBatteryCharge" typeId="kp-actual-battery-charge-type"/>
+			<channel id="pssbFuseState" typeId="kp-pssb-fuse-state-type"/>
+			<channel id="batteryReadyFlag" typeId="kp-battery-ready-flag-type"/>
+			<channel id="actualStateOfCharge" typeId="kp-actual-state-of-charge-type"/>
+			<channel id="batteryTemperature" typeId="kp-battery-temperature-type"/>
+			<channel id="batteryVoltage" typeId="kp-battery-voltage-type"/>
+			<channel id="batteryGrossCapacity" typeId="kp-battery-gross-capacity-type"/>
+			<channel id="batteryActualSoc" typeId="kp-battery-actual-soc-type"/>
+			<channel id="batteryManufacturer" typeId="kp-battery-manufacturer-type"/>
+			<channel id="batteryModelId" typeId="kp-battery-model-id-type"/>
+			<channel id="batterySerialNumber" typeId="kp-battery-serial-number-type"/>
+			<channel id="workCapacity" typeId="kp-work-capacity-type"/>
+			<channel id="actualBatteryChargePower" typeId="kp-actual-battery-charge-power-type"/>
+			<channel id="batteryFirmware" typeId="kp-battery-firmware-type"/>
+			<channel id="batteryType" typeId="kp-battery-type-type"/>
+			<channel id="totalDcChargeEnergy" typeId="kp-total-dc-charge-energy-type"/>
+			<channel id="totalDcDischargeEnergy" typeId="kp-total-dc-discharge-energy-type"/>
+			<channel id="totalAcChargeEnergy" typeId="kp-total-ac-charge-energy-type"/>
+			<channel id="totalAcDischargeEnergy" typeId="kp-total-ac-discharge-energy-type"/>
+			<channel id="totalAcChargeEnergyGrid" typeId="kp-total-ac-charge-energy-grid-type"/>
+		</channels>
+	</channel-group-type>
+
+	<channel-group-type id="kp-dc-ac-energy">
+		<label>DC/AC Energy and Power</label>
+		<channels>
+			<channel id="totalDcPvEnergy" typeId="kp-total-dc-pv-energy-type"/>
+			<channel id="totalDcEnergyFromPv1" typeId="kp-total-dc-energy-from-pv1-type"/>
+			<channel id="totalDcEnergyFromPv2" typeId="kp-total-dc-energy-from-pv2-type"/>
+			<channel id="totalDcEnergyFromPv3" typeId="kp-total-dc-energy-from-pv3-type"/>
+			<channel id="totalEnergyAcSideToGrid" typeId="kp-total-energy-ac-side-to-grid-type"/>
+		</channels>
+	</channel-group-type>
+
+</thing:thing-descriptions>

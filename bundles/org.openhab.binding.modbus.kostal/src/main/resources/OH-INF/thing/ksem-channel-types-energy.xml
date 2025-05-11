@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="modbus"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<channel-type id="ksem-active-energy-plus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Active Energy Plus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="ksem-active-energy-minus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Active Energy Minus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="ksem-reactive-energy-plus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Reactive Energy Plus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="ksem-reactive-energy-minus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Reactive Energy Minus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="ksem-apparent-energy-plus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Apparent Energy Plus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+	<channel-type id="ksem-apparent-energy-minus-type">
+		<item-type>Number:Energy</item-type>
+		<label>Apparent Energy Minus</label>
+		<category>Energy</category>
+		<state readOnly="true" pattern="%.3f %unit%"/>
+	</channel-type>
+
+</thing:thing-descriptions>
